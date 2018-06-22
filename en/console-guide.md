@@ -73,7 +73,7 @@ Below are required to create an instance template:
   </tr>
 </table>
 
-> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/ko/overview/#_2).<br>
+> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).<br>
 
 > [Caution] An instance template, once created, cannot be modified.
 
