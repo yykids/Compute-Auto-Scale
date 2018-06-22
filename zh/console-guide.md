@@ -73,7 +73,7 @@
   </tr>
 </table>
 
-> [参考]新增数据盘只能通过用户脚本挂载后才可使用。详细步骤请参考[块存储指南](/Storage/Block%20Storage/ko/overview/#_2)。
+> [参考]新增数据盘只能通过用户脚本挂载后才可使用。详细步骤请参考[块存储指南](/Storage/Block%20Storage/zh/overview/#_2)。
 
 <br>
 
