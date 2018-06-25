@@ -1,225 +1,221 @@
 ## Compute > Auto Scale > Console Guide
 
-## 인스턴스 템플릿
-### 인스턴스 템플릿 생성 하기
+## Instance Templates
+### Creating Instance Templates
 
-오토스케일을 통해 인스턴스를 생성하려면 먼저 인스턴스 템플릿을 작성해야 합니다.
-인스턴스 템플릿을 작성할 때 필요한 항목들은 아래와 같습니다.
+To create an instance through auto scale, an instance template must be created first.
+Below are required to create an instance template:
 
 <table class="it">
   <tr>
-    <th>분류</th>
-    <th>항목</th>
-    <th>설명</th>
+    <th>Classification</th>
+    <th>Item</th>
+    <th>Description</th>
   </tr>
   <tr>
-    <td rowspan="2">템플릿 정보</td>
-    <td>이름</td>
-    <td>인스턴스 템플릿의 이름</td>
+    <td rowspan="2">Template Information</td>
+    <td>Name</td>
+    <td>Name of Instance Template</td>
   </tr>
   <tr>
-    <td>설명</td>
-    <td>인스턴스 템플릿의 설명. 영자 기준으로 최대 255자</td>
+    <td>Description</td>
+    <td>Description of an instance template. Up to 255 characters for English</td>
   </tr>
   <tr>
-    <td rowspan="8">인스턴스 정보</td>
-    <td>이미지</td>
-    <td>인스턴스 템플릿으로 생성될 인스턴스의 이미지</td>
+    <td rowspan="8">Instance Information</td>
+    <td>Image</td>
+    <td>An instance image to be created with an instance template</td>
   </tr>
   <tr>
-    <td>이름</td>
-    <td>생성될 인스턴스의 이름<br>같은 인스턴스 템플릿으로 생성된 인스턴스들은 모두 같은 이름을 가짐</td>
+    <td>Name</td>
+    <td>Name of an instance to be created<br>All instances created with a same instance template are named the same</td>
   </tr>
   <tr>
-    <td>가용성 영역</td>
-    <td>인스턴스가 생성될 영역</td>
+    <td>Availability Area </td>
+    <td>Area where an instance is to be created </td>
   </tr>
   <tr>
-    <td>사양</td>
-    <td>생성될 인스턴스의 사양</td>
+    <td>Specifications </td>
+    <td>Specifications of an instance to be created </td>
   </tr>
   <tr>
-    <td>기본 디스크 크기</td>
-    <td>생성될 인스턴스의 기본 디스크의 크기. <br>단위는 GB. 인스턴스의 사양에 따라 크기가 제한됨</td>
+    <td>Default Disk Size </td>
+    <td>Size of a default disk of an instance to be created <br> The unit is GB; the size is to be confined depending on the instance specifications </td>
   </tr>
   <tr>
-    <td>키페어</td>
-    <td>생성될 인스턴스에 접근하기 위한 키</td>
+    <td>Key Pair</td>
+    <td>Key to access an instance to be created </td>
   </tr>
   <tr>
-    <td>보안 그룹</td>
-    <td>생성될 인스턴스의 보안 규칙</td>
+    <td>Security Group </td>
+    <td>Security rules of an instance to be created </td>
   </tr>
   <tr>
-    <td>네트워크</td>
-    <td>생성될 인스턴스가 연결될 네트워크. <br>최대 4개까지 연결 가능하며, 연결 순서가 중요. <br>첫 번째 네트워크가 기본 게이트웨이 주소로 설정됨</td>
+    <td>Network </td>
+    <td>Network to connect with an instance to be created. <br> Can connect up to 4, and the order is important.<br> The first network serves as the default gateway address </td>
   </tr>
   <tr>
-    <td rowspan="4">추가 정보</td>
-    <td>플로팅 IP</td>
-    <td>생성될 인스턴스에 플로팅 IP 할당 여부</td>
+    <td rowspan="4">Additional Information </td>
+    <td>Floating IP</td>
+    <td>Whether to assign a floating IP to an instance which is to be created </td>
   </tr>
   <tr>
-    <td>추가 디스크 이름</td>
-    <td>생성될 인스턴스에 추가적으로 할당할 디스크의 이름</td>
+    <td>Name of Additional Disk</td>
+    <td>Name of a disk to be additionally assigned to an instance which is to be created. </td>
   </tr>
   <tr>
-    <td>추가 디스크 크기</td>
-    <td>생성될 인스턴스에 추가적으로 할당할 볼륨의 크기<br> 단위는 GB이며, 10 ~ 1000GB 내의 값만 허용</td>
+    <td>Size of Additional Disk </td>
+    <td>Size of a volume to be additionally assigned to an instance to be created <br> The unit is GB; allows a value between 10 and 1000GB only </td>
   </tr>
   <tr>
-    <td>사용자 스크립트</td>
-    <td>생성될 인스턴스에서 부팅 직후 실행할 스크립트<br> 최대 영문 기준 65535자까지 허용</td>
+    <td>User Script </td>
+    <td>Script to execute immediately after booting on an instance to be created <br> Allows up to 65535 characters in English </td>
   </tr>
 </table>
 
-> [참고] 추가 디스크는 사용자 스크립트를 통해 마운트 과정을 거쳐야 사용할 수 있습니다. 사용자 스크립트를 통한 마운트 과정은 [블록 스토리지 가이드](/Storage/Block%20Storage/ko/overview/#_2)를 참고하시기 바랍니다.
+> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).<br>
 
-<br>
+> [Caution] An instance template, once created, cannot be modified.
 
-> [주의] 인스턴스 템플릿은 한번 생성하면 수정이 불가능합니다.
+## Scaling Groups
+### View List of Scaling Groups
+Shows currently-active scaling groups. On the View List screen, status of each scaling group can be found.
 
-## 스케일링 그룹
-### 스케일링 그룹 목록 보기
-현재 활성화된 스케일링 그룹들을 보여줍니다. 목록 보기 화면에서는 각 스케일링 그룹의 상태를 확인할 수 있습니다.
+- Minimum/Maximum Instances: Minimum/Maximum number of instances that a scaling group can create.
+- Current Instances: The number of instances currently possessed by a scaling group.
+- Instance Template: The instance template currently used by a scaling group.
+- Load Balancer: The load balancer currently used by a scaling group.
+- Status: Refers to the status of a scaling group, by which success/failure of operation according to its policy can be confirmed. Below are the list of status.
 
-- 최소/최대 인스턴스: 스케일링 그룹이 생성할 수 있는 최소/최대 인스턴스의 수입니다.
-- 현재 인스턴스: 스케일링 그룹이 현재 보유 중인 인스턴스의 수입니다.
-- 인스턴스 템플릿: 스케일링 그룹이 사용 중인 인스턴스 템플릿 입니다.
-- 로드밸런서: 스케일링 그룹이 사용 중인 로드밸런서 입니다.
-- 상태: 스케일링 그룹의 상태입니다. 스케일링 그룹의 정책 발동에 따른 동작 성공 여부를 확인할 수 있습니다. 스케일링 그룹의 상태 목록은 다음과 같습니다.
-
-| 상태 | 설명 |
+| Status | Description |
 |--|--|
-| CREATE_IN_PROGRESS | 스케일링 그룹 생성이 진행 중인 상태 |
-| CREATE_COMPLETE | 스케일링 그룹 생성이 성공한 상태<br>구동 인스턴스 수 만큼 인스턴스를 생성함 |
-| CREATE_FAILED | 스케일링 그룹 생성이 실패한 상태<br>관리자에게 문의 |
-| UPDATE_IN_PROGRESS | 스케일링 그룹에 대한 변화가 진행 중인 상태 |
-| UPDATE_COMPLETE | 스케일링 그룹의 수정이나 확장/감축 정책 발동되어 스케일링 그룹이 소유한 리소스에 변화가 생긴 상태 |
-| UPDATE_FAILED | 스케일링 그룹에 대한 동작이 실패한 상태<br> 관리자에게 문의 |
+| CREATE_IN_PROGRESS | Creation of a scaling group is under progress |
+| CREATE_COMPLETE | Scaling group has been successfully created <br> Instances are created as many as running instances |
+| CREATE_FAILED | Creating a scaling group has failed  <br> Contact Administrator|
+| UPDATE_IN_PROGRESS | Change of a scaling group is under way |
+| UPDATE_COMPLETE | Change in resources owned by a scaling group has been made due to modification or scale-out/in policy |
+| UPDATE_FAILED | Operation for a scaling group has failed <br> Contact Administrator |
 
-### 스케일링 그룹 생성 하기
-스케일링 그룹에서는 다음과 같은 항목을 정의할 수 있습니다.
+### Create Scaling Groups
+Following items can be defined in a scaling group.
 
 <table class="sg">
   <tr>
-    <th>분류</th>
-    <th>항목</th>
-    <th>설명</th>
+    <th>Classification</th>
+    <th>Item</th>
+    <th>Description</th>
   </tr>
   <tr>
-    <td rowspan="5">설정</td>
-    <td>이름</td>
-    <td>스케일링 그룹의 이름, 영대소문자, '-', '.' 및 숫자 20자 이내</td>
+    <td rowspan="5">Setting</td>
+    <td>Name</td>
+    <td>Name of a scaling group, within 20 characters in combination of capital and lower cases, '-', '.', and numbers </td>
   </tr>
   <tr>
-    <td>인스턴스 템플릿</td>
-    <td>스케일링 그룹이 사용할 인스턴스 템플릿</td>
+    <td>Instance Template</td>
+    <td>The instance template to be used by a scaling group </td>
   </tr>
   <tr>
-    <td>최소 인스턴스</td>
-    <td>스케일링 그룹이 활성화되는 동안 최소한으로 유지될 인스턴스의 갯수</td>
+    <td>Minimum Instance</td>
+    <td>The number of instances to be maintained at the minimum while a scaling group is activated </td>
   </tr>
   <tr>
-    <td>최대 인스턴스</td>
-    <td>스케일링 그룹이 활성화되는 동안 생성가능한 최대 인스턴스의 갯수</td>
+    <td>Maximum Instance</td>
+    <td>The number of maximum instances allowed while a scaling group is activated </td>
   </tr>
   <tr>
-    <td>구동 인스턴스</td>
-    <td>스케일링 그룹이 최초로 활성화되었을 때 생성되는 인스턴스의 갯수</td>
+    <td>Running Instance </td>
+    <td>The number of instances created when a scaling group is activated for the first time </td>
   </tr>
   <tr>
-    <td rowspan="4">정책</td>
-    <td>조건</td>
-    <td>확장/감축 정책의 발동 조건<br>감시할 성능 지표, 기준값, 유지 시간을 지정</td>
+    <td rowspan="4">Policy</td>
+    <td>Condition</td>
+    <td>Initiating conditions for scale-out/in policy <br> Specify performance indicators, reference values, and continued time</tr>
+  <tr>
+    <td>Conditional Operator</td>
+    <td>Operators to be applied between initiating conditions <br> With `and `, policy is initiated when all conditions are satisfied<br> With`or`, policy is initiated when only one of the conditions is met</td>
   </tr>
   <tr>
-    <td>조건 연산자</td>
-    <td>발동 조건들 사이에 적용할 연산자<br>`and`를 선택한 경우 각 조건들을 모두 만족했을 때 정책이 발동<br>`or`를 선택한 경우 조건들 중 하나만 만족해도 정책이 발동</td>
+    <td>Instance</td>
+    <td>Number of instances to be created or deleted when a policy is initiated. </td>
   </tr>
   <tr>
-    <td>인스턴스</td>
-    <td>정책이 발동되었을 때 생성 혹은 삭제될 인스턴스의 갯수</td>
+    <td>Cooldown Period </td>
+    <td>Time to wait until a policy is initiated again after previous initiation <br>If cooldown period has not passed, policy cannot be initiated even if conditions are met.  </td>
   </tr>
   <tr>
-    <td>재사용 대기시간</td>
-    <td>정책이 발동된 후 다시 발동되기까지 기다려야 하는 시간<br>재사용 대기시간이 지나지 않았다면 조건을 만족해도 정책이 발동되지 않음</td>
-  </tr>
-  <tr>
-    <td>로드밸런서</td>
-    <td>선택된 로드밸런서</td>
-    <td>생성된 인스턴스가 연결될 로드밸런서</td>
+    <td>Load Balancer </td>
+    <td>Selected Load Balancer </td>
+    <td>The load balancer that a created instance is to be connected with.  </td>
   </tr>
 </table>
 
-### 상세 정보 보기 및 수정 하기
-스케일링 그룹 목록에서 원하는 스케일링 그룹을 선택하여 상세 정보를 확인합니다.
+### View Details and Modify 
+Select a scaling group from the list of scaling groups and check its details. 
 
-상세 정보 화면에서 `편집`을 선택하면 스케일링 그룹의 속성을 수정할 수 있습니다. 스케일링 그룹을 수정함으로써 사용 중인 인스턴스 템플릿을 변경하거나 최소/최대/구동 인스턴스를 변경할 수 있습니다.
+Click `Edit`on details screen, to modify attributes of the scaling group. By modifying the scaling group, instance templates in use or minimum/maximum/running instances can be changed. 
 
-### 정책 보기 및 실행 하기
-스케일링 그룹 목록에서 원하는 스케일링 그룹을 선택하여 스케일링 정책을 확인합니다.
+### View Policy and Execute 
+Select a scaling group from the list of scaling groups and check its scaling policy. 
 
-스케일링 정책 화면에서 `편집`을 선택하면 스케일링 정책을 수정할 수 있습니다. 또한 확장/감축 정책에서 `실행`을 선택하여 강제적으로 정책을 발동할 수 있습니다.
+Click `Edit` on policy details, to modify scaling policy. Or, click `Execute`in scale up/down policy to initiate the policy by force.  
 
-### 예약 작업 보기 및 생성 하기
-스케일링 그룹 목록에서 원하는 스케일링 그룹을 선택하여 예약 작업을 확인합니다.
+### View and Create Scheduled Tasks 
+Select a scaling group from the list of scaling groups, and check scheduled tasks. 
 
-예약 작업을 통해 지정된 시간에 스케일링 그룹의 최소/최대/구동 인스턴스의 수를 조정할 수 있습니다.
-예약 작업은 한번만 실행하거나 주기적으로 실행하도록 설정할 수 있습니다.
+With task scheduling, the number of minimum/maximum/running instances of a scaling group at a specific time can be adjusted.  
+Scheduled tasks can be set for one-time or periodic execution. 
 
-예약 작업을 생성할 때 필요한 항목들은 아래와 같습니다.
+Items as follows are required to create a scheduled task: 
 
-| 항목 | 설명 |
+| Item | Description |
 |--|--|
-| 이름 | 예약 작업의 이름 |
-| 변경 항목 | 예약 작업이 변경할 스케일링 그룹의 속성<br>최소/최대/구동 인스턴스 중 하나를 선택 |
-| 값 | 변경 항목에서 지정한 속성의 새로운 값<br>지정한 시간대에 `변경 항목`에서 선택한 속성을 이 값으로 수정 |
-| 반복 | 예약 작업의 반복 여부<br>1회 또는 Cron 표현식 중 하나를 선택 |
-| Cron 표현식 | `반복`을 Cron 표현식으로 선택했을 때 활성화됨 |
-| 시작 시간 | 예약 작업이 활성화될 시간<br>`반복`을 1회로 선택한 경우 시작 시간에 예약 작업이 실행<br>`반복`을 Cron 표현식으로 선택한 경우 시작 시간을 기점으로 하여 주기적으로 예약 작업이 실행 |
-| 종료 시간 | 예약 작업이 종료될 시간<br>`반복`을 Cron 표현식으로 선택했을 때 활성화됨 |
+| Name | Name of a scheduled task |
+| Change Items | Attributes of a scaling group to be changed by a scheduled task <br>Select one out of the minimum/maximum/running instances |
+| Value | New value of an attribute specified in change items <br>Modify the attribute selected from  `Change Items`on specified timing to this value |
+| Repeat | Whether to repeat a scheduled task<br>Select either once or Cron expression |
+| Cron Expression | Activated when Cron expression is selected for `Repeat` |
+| Start Time | Activation time for a scheduled task <br>When `Repeat`is set once, task shall be executed on start time <br>When Cron expression is selected for`Repeat`, scheduled tasks are executed on a regular basis from the start time. |
+| End Time | Closing time for a scheduled task <br>Activated when Cron expression is selected for `Repeat` |
 
-> [참고] Cron 표현식은 예약 작업의 실행 시간/주기를 나타내기 위한 표현식입니다.
+> [Note] The Cron Expression is applied to show execution time/cycle of a scheduled task. 
 >
-> Cron 표현식은 5개의 항목으로 구성되고 각 항목은 공백 문자로 구분됩니다. 항목별 의미는 다음과 같습니다.
+> The Cron expression is comprised of five items, each of which is divided by space characters and it means as follows:   
 >
-> | 항목 | 허용 범위 | 사용 가능한 특수 문자 |
+> | Item | Range Allowed | Available Special Characters |
 > |--|--|--|
-> | 분 | 0-59 | `*` `,` `-` |
-> | 시간 | 0-23 | `*` `,` `-` |
-> | 일 | 1-31 | `*` `,` `-` `?` `L` `W` |
-> | 월 | 1-12<br>JAN-DEC | `*` `,` `-` |
-> | 요일 | 0-6<br>SUN-SAT | `*` `,` `-` `?` `L` `#` |
+> | Minute | 0-59 | `*` `,` `-` |
+> | Hour| 0-23 | `*` `,` `-` |
+> | Day | 1-31 | `*` `,` `-` `?` `L` `W` |
+> | Month | 1-12<br>JAN-DEC | `*` `,` `-` |
+> | Day | 0-6<br>SUN-SAT | `*` `,` `-` `?` `L` `#` |
 >
-> 각 항목에는 숫자 또는 특수 문자를 써서 실행 시간을 지정합니다. 정확한 문법은 다음과 같습니다.
+> For each item, use numbers or special characters to specify execution time. For correct grammar, refer to the following:
 >
-> | 특수 문자 | 의미 |
+> | Special Characters | Meaning |
 > |--|--|
-> | * | 모든 시각 |
-> | ? | 아무 시간 |
-> | - | 범위 |
-> | , | 특정 시간 |
-> | / | 증가량 |
-> | L | 마지막 시간 |
-> | W | 가장 가까운 평일. **일** 항목에서만 사용 가능 |
-> | # | N번째 요일. **요일** 항목에서만 사용 가능 |
+> | * | All Hours |
+> | ? | Any Time |
+> | - | Range |
+> | , | Specific Time |
+> | / | Increase Volume |
+> | L | Last Time |
+> | W | Closest Weekday: available only on **Day** items |
+> | # | The Nth Day: available only on  **Day** items |
 >
-> Cron 표현식의 사용 예시는 다음과 같습니다.
+> The Cron expression is used like in the following examples.
 >
-> `0 10 * * *`: 매일 10시 0분에 실행<br>
-> `0/20 15 * * *`: 매일 15시 0분부터 20분 간격으로 실행, 즉 15시 0분, 20분, 40분에 실행<br>
-> `0 12-15 * * *`: 매일 12시, 13시, 14시, 15시 0분에 실행<br>
-> `0 0 15 6,7,8 *`: 6월 7월 8월 15일 0시 0분에 실행<br>
-> `0 0 L * *`: 매월 말일 0시 0분에 실행<br>
-> `0 9 25W * *`: 매월 25일에서 가장 가까운 평일 9시에 실행<br>
-> `0 9 ? * 3#2`: 매월 두번째 목요일 9시 0분에 실행
+> `0 10 * * *`: Executes at every 10:00 <br>
+> `0/20 15 * * *`: Executes in every 20 minutes from 15:00, like 15:00, 15:20, and 15:40 <br>
+> `0 12-15 * * *`: Executes at every 12:00, 13:00, 14:00, and 15:00 <br>
+> `0 0 15 6,7,8 *`: Executes at 00:00 on the 15th of June, July, and August <br>
+> `0 0 L * *`: Executes at 00:00 on the last day of every month <br>
+> `0 9 25W * *`: Executes at 09:00 on a closest weekday from the 25th day of every month <br>
+> `0 9 ? * 3#2`: Executes at 09:00 on the second Thursday of every month <br>
 
-<br>
+> [Caution] Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed. 
 
-> [주의] 예약 작업의 시작 시간은 현재 시간 기준으로 1분 뒤 이후로만 지정할 수 있습니다. 스케일링 그룹이 변경 중이라면 예약 작업의 실행은 지연될 수 있습니다.
+### View List of Created Instances 
+Select a scaling group from the list and check the list of created instances. 
 
-### 생성한 인스턴스 목록 보기
-스케일링 그룹 목록에서 원하는 스케일링 그룹을 선택하여 생성한 인스턴스 목록을 확인합니다.
+> [Caution] Instances that a scaling group created are also exposed on the list of instance products. However, user cannot control them.  
 
-> [주의] 스케일링 그룹이 생성한 인스턴스들은 인스턴스 상품의 목록에서도 노출됩니다. 그러나 사용자가 임의로 조작할 수는 없습니다.
