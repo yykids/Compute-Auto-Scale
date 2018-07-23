@@ -35,12 +35,12 @@ Below are required to create an instance template:
     <td>Area where an instance is to be created </td>
   </tr>
   <tr>
-    <td>Specifications </td>
+    <td>Flavors </td>
     <td>Specifications of an instance to be created </td>
   </tr>
   <tr>
     <td>Default Disk Size </td>
-    <td>Size of a default disk of an instance to be created <br> The unit is GB; the size is to be confined depending on the instance specifications </td>
+    <td>Size of a default disk of an instance to be created <br> The unit is GB; the size is to be confined depending on the instance flavors </td>
   </tr>
   <tr>
     <td>Key Pair</td>
@@ -73,7 +73,7 @@ Below are required to create an instance template:
   </tr>
 </table>
 
-> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).<br>
+> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/ko/overview/#_2).<br>
 
 > [Caution] An instance template, once created, cannot be modified.
 
