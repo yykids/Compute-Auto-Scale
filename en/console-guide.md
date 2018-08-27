@@ -194,7 +194,6 @@ Items as follows are required to create a scheduled task:
 > | Special Characters | Meaning |
 > |--|--|
 > | * | All Hours |
-> | ? | Any Time |
 > | - | Range |
 > | , | Specific Time |
 > | / | Increase Volume |
@@ -210,7 +209,7 @@ Items as follows are required to create a scheduled task:
 > `0 0 15 6,7,8 *`: Executes at 00:00 on the 15th of June, July, and August <br>
 > `0 0 L * *`: Executes at 00:00 on the last day of every month <br>
 > `0 9 25W * *`: Executes at 09:00 on a closest weekday from the 25th day of every month <br>
-> `0 9 ? * 3#2`: Executes at 09:00 on the second Thursday of every month <br>
+> `0 9 * * 3#2`: Executes at 09:00 on the second Thursday of every month <br>
 
 > [Caution] Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed. 
 
