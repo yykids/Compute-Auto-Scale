@@ -225,6 +225,7 @@ Select a scaling group from the list and check its statistical graph.
 > The statistical graph shows the average usage of instances that belong to a scaling group during the last 1 day. You can also identify the point of time and cause of increase or decrease.
 
 Statistical graphs provide statistics on system resources, as follows:
+
 | System Resources | Provided Statistical Data |
 | --- | --- |
 | CPU Usage | Average CPU usage of all instances that belong to a scaling grop|
