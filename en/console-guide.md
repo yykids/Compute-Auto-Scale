@@ -149,23 +149,23 @@ Following items can be defined in a scaling group.
   </tr>
 </table>
 
-### View Details and Modify 
-Select a scaling group from the list of scaling groups and check its details. 
+### View Details and Modify
+Select a scaling group from the list of scaling groups and check its details.
 
-Click `Edit`on details screen, to modify attributes of the scaling group. By modifying the scaling group, instance templates in use or minimum/maximum/running instances can be changed. 
+Click `Edit`on details screen, to modify attributes of the scaling group. By modifying the scaling group, instance templates in use or minimum/maximum/running instances can be changed.
 
-### View Policy and Execute 
-Select a scaling group from the list of scaling groups and check its scaling policy. 
+### View Policy and Execute
+Select a scaling group from the list of scaling groups and check its scaling policy.
 
 Click `Edit` on policy details, to modify scaling policy. Or, click `Execute`in scale up/down policy to initiate the policy by force.  
 
-### View and Create Scheduled Tasks 
-Select a scaling group from the list of scaling groups, and check scheduled tasks. 
+### View and Create Scheduled Tasks
+Select a scaling group from the list of scaling groups, and check scheduled tasks.
 
 With task scheduling, the number of minimum/maximum/running instances of a scaling group at a specific time can be adjusted.  
-Scheduled tasks can be set for one-time or periodic execution. 
+Scheduled tasks can be set for one-time or periodic execution.
 
-Items as follows are required to create a scheduled task: 
+Items as follows are required to create a scheduled task:
 
 | Item | Description |
 |--|--|
@@ -177,7 +177,7 @@ Items as follows are required to create a scheduled task:
 | Start Time | Activation time for a scheduled task <br>When `Repeat`is set once, task shall be executed on start time <br>When Cron expression is selected for`Repeat`, scheduled tasks are executed on a regular basis from the start time. |
 | End Time | Closing time for a scheduled task <br>Activated when Cron expression is selected for `Repeat` |
 
-> [Note] The Cron Expression is applied to show execution time/cycle of a scheduled task. 
+> [Note] The Cron Expression is applied to show execution time/cycle of a scheduled task.
 >
 > The Cron expression is comprised of five items, each of which is divided by space characters and it means as follows:   
 >
@@ -211,10 +211,29 @@ Items as follows are required to create a scheduled task:
 > `0 9 25W * *`: Executes at 09:00 on a closest weekday from the 25th day of every month <br>
 > `0 9 * * 3#2`: Executes at 09:00 on the second Thursday of every month <br>
 
-> [Caution] Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed. 
+> [Caution] Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed.
 
-### View List of Created Instances 
-Select a scaling group from the list and check the list of created instances. 
+### View List of Created Instances
+Select a scaling group from the list and check the list of created instances.
 
 > [Caution] Instances that a scaling group created are also exposed on the list of instance products. However, user cannot control them.  
 
+### View Statistical Graphs
+Select a scaling group from the list and check its statistical graph.
+
+> [Note]
+> The statistical graph shows the average usage of instances that belong to a scaling group during the last 1 day. You can also identify the point of time and cause of increase or decrease.
+
+Statistical graphs provide statistics on system resources, as follows:
+
+| System Resources | Provided Statistical Data |
+| --- | --- |
+| CPU Usage | Average CPU usage of all instances that belong to a scaling grop|
+| Memory Usage | Average memory usage of all instances that belong to a scaling group|
+| Disk Transfer Rate | Average data volume of read/write disk data per minute for all instances that belong to a scaling group|
+| Network Transfer Rate | Average data volume of send/receive network per minute for all instances that belong to a scaling group |
+
+Each graph can be extended up to 5-minute intervals, providing 1-minute statistical data at the minimum.
+
+> [Note]
+> Statistics require data of every instance of a scaling group, but it is impossible to collect all instance data at once. And that may cause some missing data during the first few minutes. Statistics are calculated based only on those instances which include collected data; hence, with further data added at later stage, values may change. Now, after all data is collected for every instance, you can find the same values at all times.
