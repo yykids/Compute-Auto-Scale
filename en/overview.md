@@ -54,7 +54,7 @@ As such, without a cooldown period, instances may be abruptly increased or decre
 
 > [Caution] To prevent execution of both scale-out/in policies, scaling groups should also require a cooldown period. The cooldown period of a scaling group should follow the smaller value of a scale-out/in policy.
 
-The auto-healing policy is automatically configured without extra setting, when a scaling group is created. If performance indicators of an instance fail to be collected for three minutes, it is considered a failure, and the instance is deleted and replaced by a new instance. Auto recovery runs regardless of the cooldown.
+The auto healing policy is automatically configured without extra setting, when a scaling group is created. If performance indicators of an instance fail to be collected for three minutes, it is considered a failure, and the instance is deleted and replaced by a new instance. Auto recovery runs regardless of the cooldown.
 
 ### Load Balancer
 Specifies a load balancer to connect after an instance is created. With a scale-out policy, created instances are connected to a designated load balancer. As newly-added instances naturally share loads by load balancer, they can be immediately put into services.
