@@ -1,6 +1,6 @@
 ## Compute > Auto Scale > Overview
 
-Auto Scale helps to add or remove instances by monitoring loads of an instance. With auto scale, stable and flexible user service can be provided as real-time responses to loads are available. 
+The Auto Scale service keeps monitoring instance loads to add or create instances as required. It also automatically creates a new instance when there is an error, such as disconnected network, so that the failed instance can be replaced.
 The auto scale is composed of an instance template and a scaling group.
 
 ## Instance Template
@@ -11,7 +11,7 @@ In addition, floating IPs and more volumes may be added, and a user script, whic
 > An instance cannot be created only by creating an instance template.
 
 ## Scaling Group
-Scaling group defines conditions to additionally create/delete instances, as well as activities to perform when the conditions are met. On principle, a scaling group is comprised of settings for minimum/maximum/running instances and scale out/in policy.
+Scaling group defines conditions to additionally create/delete instances, as well as activities to perform when the conditions are met. On principle, a scaling group is comprised of settings for minimum/maximum/running instances, scale out/in policy and auto healing policy.
 ### Minimum, Maximum, and Running Instances
 Minimum, maximum, and running instances are the parameters that must be defined in a scaling group, and each can be described as follows:
 
@@ -53,6 +53,8 @@ As such, without a cooldown period, instances may be abruptly increased or decre
 <br>
 
 > [Caution] To prevent execution of both scale-out/in policies, scaling groups should also require a cooldown period. The cooldown period of a scaling group should follow the smaller value of a scale-out/in policy.
+
+The auto healing policy is automatically configured without extra setting, when a scaling group is created. If performance indicators of an instance fail to be collected for three minutes, it is considered a failure, and the instance is deleted and replaced by a new instance. Auto recovery runs regardless of the cooldown.
 
 ### Load Balancer
 Specifies a load balancer to connect after an instance is created. With a scale-out policy, created instances are connected to a designated load balancer. As newly-added instances naturally share loads by load balancer, they can be immediately put into services.
