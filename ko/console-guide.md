@@ -1,5 +1,9 @@
 ## Compute > Auto Scale > 콘솔 사용 가이드
 
+## 동영상 가이드
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zVLVE75yIZc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## 인스턴스 템플릿
 ### 인스턴스 템플릿 생성
 
