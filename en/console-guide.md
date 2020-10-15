@@ -55,7 +55,7 @@ Below are required to create an instance template:
     <td>Network to connect with an instance to be created. <br> Can connect up to 4, and the order is important.<br> The first network serves as the default gateway address </td>
   </tr>
   <tr>
-    <td rowspan="4">Additional Information </td>
+    <td rowspan="5">Additional Information </td>
     <td>Floating IP</td>
     <td>Whether to assign a floating IP to an instance which is to be created </td>
   </tr>
