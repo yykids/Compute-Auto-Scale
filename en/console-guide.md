@@ -82,6 +82,8 @@ Below are required to create an instance template:
 <br/>
 
 > [참고] Deploy 사용을 선택한 인스턴스 템플릿으로 스케일링 그룹을 생성하면 증설 시 자동으로 애플리케이션을 배포하도록 Deploy 서비스에 등록할 수 있습니다. 자세한 내용은 [Deploy 가이드](/Dev%20Tool/Deploy/en/console-guide/)를 참고하세요.
+>
+> Deploy 사용 기능은 2020년 10월 현재 한국(판교), 한국(평촌), 미국(캘리포니아) 리전에서만 제공됩니다.
 
 <br/>
 
