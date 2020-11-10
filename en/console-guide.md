@@ -77,17 +77,20 @@ Below are required to create an instance template:
   </tr>    
 </table>
 
-> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).
+> [Note]
+> Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).
 
 <br/>
 
-> [참고] Deploy 사용을 선택한 인스턴스 템플릿으로 스케일링 그룹을 생성하면 증설 시 자동으로 애플리케이션을 배포하도록 Deploy 서비스에 등록할 수 있습니다. 자세한 내용은 [Deploy 가이드](/Dev%20Tool/Deploy/en/console-guide/)를 참고하세요.
+> [참고]
+> Deploy 사용을 선택한 인스턴스 템플릿으로 스케일링 그룹을 생성하면 증설 시 자동으로 애플리케이션을 배포하도록 Deploy 서비스에 등록할 수 있습니다. 자세한 내용은 [Deploy 가이드](/Dev%20Tool/Deploy/en/console-guide/)를 참고하세요.
 >
 > Deploy 사용 기능은 2020년 11월 현재 한국(판교), 한국(평촌), 일본(도쿄) 리전에서만 제공됩니다.
 
 <br/>
 
-> [Caution] An instance template, once created, cannot be modified.
+> [Caution]
+> An instance template, once created, cannot be modified.
 
 ## Scaling Groups
 ### View List of Scaling Groups
@@ -161,6 +164,12 @@ Following items can be defined in a scaling group.
   </tr>
 </table>
 
+### 로드밸런서 변경
+스케일링 그룹에 로드밸런서를 연결하거나, 연결된 로드밸런서를 제거, 교체할 수 있습니다. 연결할 로드밸런서는 미리 생성되어 있어야 합니다.
+
+> [주의]
+> 로드밸런서를 변경하면 현재 인스턴스는 삭제되고 새로운 인스턴스가 생성됩니다.
+
 ### View Details and Modify
 Select a scaling group from the list of scaling groups and check its details.
 
@@ -189,7 +198,8 @@ Items as follows are required to create a scheduled task:
 | Start Time | Activation time for a scheduled task <br>When `Repeat`is set once, task shall be executed on start time <br>When Cron expression is selected for`Repeat`, scheduled tasks are executed on a regular basis from the start time. |
 | End Time | Closing time for a scheduled task <br>Activated when Cron expression is selected for `Repeat` |
 
-> [Note] The Cron Expression is applied to show execution time/cycle of a scheduled task.
+> [Note]
+> The Cron Expression is applied to show execution time/cycle of a scheduled task.
 >
 > The Cron expression is comprised of five items, each of which is divided by space characters and it means as follows:   
 >
@@ -223,12 +233,14 @@ Items as follows are required to create a scheduled task:
 > `0 9 25W * *`: Executes at 09:00 on a closest weekday from the 25th day of every month <br>
 > `0 9 * * 3#2`: Executes at 09:00 on the second Thursday of every month <br>
 
-> [Caution] Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed.
+> [Caution]
+> Start time of a scheduled task can be specified only after three minutes from the current time. If a scaling group is now changing, scheduled task may be delayed.
 
 ### View List of Created Instances
 Select a scaling group from the list and check the list of created instances.
 
-> [Caution] Instances that a scaling group created are also exposed on the list of instance products. However, user cannot control them.  
+> [Caution]
+> Instances that a scaling group created are also exposed on the list of instance products. However, user cannot control them.  
 
 ### View Statistical Graphs
 Select a scaling group from the list and check its statistical graph.
