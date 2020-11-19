@@ -55,7 +55,7 @@ Below are required to create an instance template:
     <td>Network to connect with an instance to be created. <br> Can connect up to 4, and the order is important.<br> The first network serves as the default gateway address </td>
   </tr>
   <tr>
-    <td rowspan="4">Additional Information </td>
+    <td rowspan="5">Additional Information </td>
     <td>Floating IP</td>
     <td>Whether to assign a floating IP to an instance which is to be created </td>
   </tr>
@@ -71,9 +71,21 @@ Below are required to create an instance template:
     <td>User Script </td>
     <td>Script to execute immediately after booting on an instance to be created <br> Allows up to 65535 characters in English </td>
   </tr>
+  <tr>
+    <td>Deploy 사용</td>
+    <td>Deploy 서비스 연계 기능 사용 여부</td>
+  </tr>    
 </table>
 
-> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).<br>
+> [Note] Additional disks can be used after mounted by a user script. Regarding the mounting procedure using user scripts, refer to [Block Storage Guide](/Storage/Block%20Storage/en/overview/#_2).
+
+<br/>
+
+> [참고] Deploy 사용을 선택한 인스턴스 템플릿으로 스케일링 그룹을 생성하면 증설 시 자동으로 애플리케이션을 배포하도록 Deploy 서비스에 등록할 수 있습니다. 자세한 내용은 [Deploy 가이드](/Dev%20Tool/Deploy/en/console-guide/)를 참고하세요.
+>
+> Deploy 사용 기능은 2020년 11월 현재 한국(판교), 한국(평촌), 일본(도쿄) 리전에서만 제공됩니다.
+
+<br/>
 
 > [Caution] An instance template, once created, cannot be modified.
 
